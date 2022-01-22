@@ -52,11 +52,13 @@ class NearEarthObject:
             self._name = info['name']
         else:
             self._name = 'Unknown'
-        if 'diameter' in info.keys():
+        if ('diameter' in info.keys()) & (len(info['diameter'])>0):
             self._diameter = float(info['diameter'])
+        elif len(info['diameter'])>0:
+            self._diameter = float('nan')
         else:
             self._diameter = float('nan')
-        if 'hazardous' in info.keys():
+        if 'hazardous' in info.keys() :
             self._hazardous = bool(info['hazardous'])
         else:
             self._hazardous = False
